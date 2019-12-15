@@ -30,6 +30,7 @@ enum
 	R_R2,
 	R_R3,
 	R_R4,
+	R_R5,
 	R_R6,
 	R_R7,
 	R_PC,
@@ -57,7 +58,7 @@ enum
 	OP_JMP,				/* jump */
 	OP_RES,				/* reserved (unused) */
 	OP_LEA,				/* load effective address */
-	OP_TRAP,			/* execute trap */
+	OP_TRAP				/* execute trap */
 };
 
 /*
@@ -106,7 +107,7 @@ uint16_t reg[R_COUNT];
  */
 uint16_t sign_extend(uint16_t x, int bit_count)
 {
-	if (( x >> (bit_count - 1)) & 1 ) {
+	if ((x >> (bit_count - 1)) & 1) {
 		x |= (0xFFFF << bit_count);
 	}
 	return x;
